@@ -1,0 +1,3 @@
+theme configure -s 5a0410-ee.myshopify.com -t 169847456033 -p shptka_bd50b46046fda7bae20e8adc15660407
+# [shopify name click home then url] [id from theme when clicked edit] [theme access kit]
+theme watch --allow-live

@@ -1,0 +1,40 @@
+<h1> tempaltes testing marie</h1>
+
+<h1>Collections Debug Output</h1>
+<pre>{{ collections | json }}</pre>
+
+{% for collection in collections %}
+    {% if collection.title == 'what' %}
+        <h1>{{ collection.title }}</h1>
+        
+        {% if collection.products %}
+            {% for product in collection.products %}
+                <a href="{{ product.url }}">{{ product.title }}</a>
+            {% endfor %}
+        {% else %}
+            <p>No products found in the 'what' collection.</p>
+        {% endif %}
+    {% endif %}
+{% endfor %}
+
+
+
+
+{% assign collection = collections['collection'] %}
+{% if collection %}
+  <div class="collection">
+    <h2>{{ collection.title }}</h2>
+    {% for product in collection.products %}
+      <div class="product">
+        <h3>{{ product.title }}</h3>
+        <div class="product-image">
+          {% comment %} <img src="{{ product.featured_image | img_url: 'medium' }}" alt="{{ product.title }}"> {% endcomment %}
+        </div>
+        <p>{{ product.price | money }}</p>
+        <a href="{{ product.url }}">View Product</a>
+      </div>
+    {% endfor %}
+  </div>
+{% else %}
+  <p>Collection not found</p>
+{% endif %}
